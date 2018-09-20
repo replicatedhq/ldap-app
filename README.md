@@ -1,4 +1,4 @@
-# Replicate LDAP Example App
+# Replicated LDAP Example App
 
 This Replicated app demonstrates how LDAP sync functionality can be implemented with [Provisioning API](https://help.replicated.com/api/integration-api/provisioning-api/).
 
