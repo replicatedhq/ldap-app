@@ -7,10 +7,11 @@ identity:
   provisioner: 'http://{{repl NodePrivateIPAddress "App" "ldap-app" }}:{{repl ContainerExposedPort "App" "ldap-app" "3000" }}'
   sources:
   - source: ldap
+    filter: '{{repl ConfigOption "ldap_sync_filter"}}'
     enabled: '{{repl if ConfigOptionEquals "auth_source" "auth_type_ldap"}}true{{repl else}}false{{repl end}}'
   - source: ldap_advanced
     enabled: '{{repl if ConfigOptionEquals "auth_source" "auth_type_ldap_advanced"}}true{{repl else}}false{{repl end}}'
-    
+
 components:
 - name: App
   containers:
@@ -172,6 +173,11 @@ config:
     value: '{{repl LdapCopyAuthFrom "FieldUsername"}}'
     default: uid
     required: true
+  - name: ldap_sync_filter
+    title: LDAP Sync Filter
+    type: text
+    default: '(objectclass=*)'
+    required: false
   - name: ldap_login_username
     title: Test username
     type: text
