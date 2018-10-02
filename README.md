@@ -8,8 +8,8 @@ Ensure that GOPATH is set.
 
 ```bash
 GOOS=linux go build .
-docker build -t registry.replicated.com/<slug>/ldap-app .
-docker push registry.replicated.com/<slug>/ldap-app
+docker build -t registry.replicated.com/<slug>/ldap-app:0.1 .
+docker push registry.replicated.com/<slug>/ldap-app:0.1
 ```
 
 `<slug>` is unique for every Replicated app.  It can be found on the `Images` page in [Vendor Web](https://vendor.replicated.com) for each app.
